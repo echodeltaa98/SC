@@ -1,0 +1,144 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Surat Cinta dari Edwin</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      background: #ffe5ec;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      position: relative;
+      width: 90vw;
+      max-width: 400px;
+      aspect-ratio: 3 / 2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .envelope {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: #ffb6b9;
+      border-radius: 10px;
+      overflow: hidden;
+      z-index: 1;
+      cursor: pointer;
+    }
+    .flap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #ff6f91;
+      clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+      transform-origin: top;
+      transition: transform 1s;
+      z-index: 3;
+    }
+    .letter {
+      position: absolute;
+      top: 100%;
+      left: 5%;
+      width: 90%;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      z-index: 2;
+      transition: top 1.5s ease;
+      opacity: 0;
+      pointer-events: none;
+    }
+    .letter.show {
+      top: -10%;
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .letter h1 {
+      color: #e75480;
+      font-size: 1.5em;
+      margin-bottom: 10px;
+    }
+    .letter p {
+      font-size: 1em;
+      color: #444;
+      margin-bottom: 15px;
+    }
+    .btn {
+      background-color: #e75480;
+      color: white;
+      padding: 10px 15px;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 1em;
+      margin: 5px;
+      display: inline-block;
+    }
+    .btn:hover {
+      background-color: #ff6b9a;
+    }
+    footer {
+      margin-top: 10px;
+      text-align: center;
+      font-size: 0.8em;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" onclick="openEnvelope()">
+    <div class="envelope">
+      <div class="flap" id="flap"></div>
+    </div>
+    <div class="letter" id="letter">
+      <h1>Untuk Kamu yang Selalu di Hatiku ❤️</h1>
+      <p>
+        Aku, <strong>Edwin Dian Pradana</strong>, menulis surat ini bukan sekadar untuk menyampaikan kata-kata, tapi untuk membagikan isi hati yang selama ini aku simpan dalam diam. 
+        Kamu adalah sosok yang tanpa sadar telah mengisi ruang-ruang kosong dalam hidupku, memberi warna di saat dunia terasa abu-abu, dan menghadirkan senyum di hari-hari yang biasa.
+      </p>
+      <p>
+        Setiap percakapan denganmu, meskipun hanya sesaat, selalu meninggalkan bekas yang hangat di hati. Aku merindukan suaramu bahkan ketika kita baru saja berbicara, dan aku menemukan bahagiaku hanya dengan melihatmu tersenyum. Mungkin ini yang orang sebut jatuh cinta—perlahan, dalam, dan begitu nyata.
+      </p>
+      <p>
+        Aku tahu cinta tak selalu mudah diungkapkan, tapi aku tak ingin menyesal karena membiarkan perasaan ini terpendam selamanya. Maka izinkan aku bertanya dengan segenap ketulusan:
+      </p>
+      <p style="font-weight:bold; font-size: 1.1em;">Maukah kamu menjadi bagian dari kisah hidupku, menjadi pacarku, dan menulis bab baru bersama-sama?</p>
+      <a class="btn" href="https://wa.me/6285156567296?text=Hai%20Edwin%2C%20aku%20mau%20jadi%20pacar%20kamu%20❤️" target="_blank">Iya, Aku Mau</a>
+      <a class="btn" href="https://wa.me/6285156567296?text=Hai%20Edwin%2C%20aku%20belum%20bisa%20jawab%20sekarang%20😔" target="_blank" style="background-color:#aaa;">Belum Bisa Jawab</a>
+      <footer>&copy; 2025 Edwin Dian Pradana</footer>
+    </div>
+  </div>
+
+  <audio autoplay loop>
+    <source src="Beautiful_In_White.mp3" type="audio/mpeg">
+    Browser kamu tidak mendukung pemutar audio.
+  </audio>
+
+  <script>
+    let opened = false;
+    function openEnvelope() {
+      if (opened) return;
+      opened = true;
+      document.getElementById('flap').style.transform = 'rotateX(-180deg)';
+      setTimeout(() => {
+        document.getElementById('letter').classList.add('show');
+      }, 500);
+    }
+  </script>
+</body>
+</html>
