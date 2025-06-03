@@ -126,7 +126,6 @@
 
   <audio autoplay loop>
     <source src="lagu_romantis.mp3" type="audio/mpeg">
-    Browser kamu tidak mendukung pemutar audio.
   </audio>
 
   <script>
@@ -134,10 +133,19 @@
     function openEnvelope() {
       if (opened) return;
       opened = true;
+
+      // Animasi buka amplop
       document.getElementById('flap').style.transform = 'rotateX(-180deg)';
       setTimeout(() => {
         document.getElementById('letter').classList.add('show');
       }, 500);
+
+         // Putar musik setelah klik amplop
+    const music = document.getElementById("bg-music");
+    music.play().catch((e) => {
+      console.log("Autoplay diblokir: ", e);
+    });
+
     }
   </script>
 </body>
